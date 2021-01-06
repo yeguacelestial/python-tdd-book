@@ -51,7 +51,9 @@ class NewVisitorTest(unittest.TestCase):
         rows = table.find_elements_by_tag_name('tr')
 
         # Checks if the item was created
-        self.assertTrue(any(row.text == '1: Buy peacock feathers' for row in rows))
+        self.assertTrue(
+            expr=any(row.text == '1: Buy peacock feathers' for row in rows),
+            msg="New to-do item did not appear in the table.")
 
         # There is still a text box inviting her to add another item. She enters "Use peacock feathers to
         # make a fly" (Edith is very methodical)
